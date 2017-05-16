@@ -1,3 +1,12 @@
-<h2>Album Detail View</h2>
-<h3>Album: {{ album.album_title }}</h3>
-<p>Artist: {{ album.artist }}</p>
+<img src="{{ album.album_logo }}" alt="" style="max-width: 100px">
+
+<h1>{{ album.album_title }}</h1>
+<h3>{{ album.artist }}</h3>
+
+<hr>
+
+<ul>
+    {% for song in album.song_set.all %}
+        <li>{{ song.song_title }} - {{ song.file_type }}</li>
+    {% endfor %}
+</ul>
